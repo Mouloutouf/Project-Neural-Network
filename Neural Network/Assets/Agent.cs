@@ -160,11 +160,13 @@ public class Agent : MonoBehaviour, IComparable<Agent>
         return 0;
     }
 
-    public void ResetAgent()
+    public void ResetAgent(float _rotation, Vector3 spawnPos)
     {
         fitness = 0;
-        tr.position = Vector3.zero;
-        tr.rotation = Quaternion.identity;
+        //tr.position = Vector3.zero;
+        tr.position = spawnPos;
+        //tr.rotation = Quaternion.identity;
+        tr.rotation = Quaternion.Euler(0, _rotation, 0);
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         distanceTraveled = 0;

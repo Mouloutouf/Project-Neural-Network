@@ -13,7 +13,9 @@ public enum Modes
 public class CheckPointManager : MonoBehaviour
 {
     public static CheckPointManager instance;
+
     public Transform firstCheckPoint;
+    public Color spawnPointColor;
 
     public GameObject wallPrefab;
     public Modes mode;
@@ -34,14 +36,14 @@ public class CheckPointManager : MonoBehaviour
     [ContextMenu("Init CheckPoint")]
     public void Init()
     {
-        firstCheckPoint = transform.GetChild(0);
-
         for (int i = 0; i < transform.childCount - 1; i++)
         {
             transform.GetChild(i).GetComponent<CheckPoint>().nextCheckpoint = transform.GetChild(i + 1);
         }
 
         transform.GetChild(transform.childCount - 1).GetComponent<CheckPoint>().nextCheckpoint = transform.GetChild(0);
+
+        firstCheckPoint.GetComponent<MeshRenderer>().material.color = spawnPointColor;
     }
 
     void CreateWalls(Modes _mode)
