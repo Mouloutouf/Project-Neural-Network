@@ -73,7 +73,7 @@ public class Manager : MonoBehaviour
     
     void AddAgent()
     {
-        agent = Instantiate(agentPrefab, Vector3.zero, Quaternion.identity, agentGroupParent);
+        agent = Instantiate(agentPrefab, Vector3.zero, Quaternion.Euler(0, UnityEngine.Random.Range(90, 180), 0), agentGroupParent);
         agent.net = new NeuralNetwork(agent.net.layers);
         agents.Add(agent);
     }

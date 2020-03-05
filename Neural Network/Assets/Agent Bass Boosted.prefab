@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: rayRange
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 9138095124636564872, guid: 24f1b8c782279b24c8149d52516bbfda,
+        type: 3}
+      propertyPath: net.layers.Array.data[0]
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4809091739549471941, guid: 24f1b8c782279b24c8149d52516bbfda,
         type: 3}
       propertyPath: m_LocalPosition.x
