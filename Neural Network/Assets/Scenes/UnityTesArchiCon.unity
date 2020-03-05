@@ -831,8 +831,8 @@ MonoBehaviour:
   agents: []
   playerIsPlaying: 0
   testWithRadius: 1
-  minRadius: 0
-  maxRadius: 0
+  minRadius: -180
+  maxRadius: -180
   spawnCheckpoint: {fileID: 0}
 --- !u!4 &194073304
 Transform:
@@ -2021,7 +2021,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658650055}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.18, y: 1.87, z: 11.3}
+  m_LocalPosition: {x: 1.18, y: 1.87, z: 37.8}
   m_LocalScale: {x: 35.72558, y: 11.674999, z: 1}
   m_Children: []
   m_Father: {fileID: 1344309311}
@@ -3476,6 +3476,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7209700992347673897, guid: 14f59eee307f2254da2492c8e5f1da19,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7209700992347900169, guid: 14f59eee307f2254da2492c8e5f1da19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3806,7 +3811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c7af397fb661148a02c08306242c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstCheckPoint: {fileID: 146515181}
+  firstCheckPoint: {fileID: 1344309311}
   spawnPointColor: {r: 0.9681535, g: 0, b: 1, a: 1}
   wallPrefab: {fileID: 4462303139446650484, guid: 4a434ac56d90d1347b5732115d67f268,
     type: 3}

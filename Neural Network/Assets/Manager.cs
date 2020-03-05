@@ -81,7 +81,7 @@ public class Manager : MonoBehaviour
     
     void AddAgent()
     {
-        agent = Instantiate(agentPrefab, Vector3.zero, Quaternion.Euler(0, UnityEngine.Random.Range(90, 180), 0), agentGroupParent);
+        agent = Instantiate(agentPrefab, Vector3.zero, Quaternion.identity, agentGroupParent);
         agent.net = new NeuralNetwork(agent.net.layers);
         agents.Add(agent);
     }
@@ -108,7 +108,7 @@ public class Manager : MonoBehaviour
         if (testWithRadius) currentRotation = UnityEngine.Random.Range(minRadius, maxRadius + 1);
         else currentRotation = 0;
 
-        Vector3 spawningPos = CheckPointManager.instance.firstCheckPoint.position - new Vector3(0, 0, -10f);
+        Vector3 spawningPos = CheckPointManager.instance.firstCheckPoint.position - new Vector3(0, 0, +10f);
 
         for (int k = 0; k < agents.Count; k++)
         {

@@ -33,8 +33,14 @@ public class Agent : MonoBehaviour, IComparable<Agent>
     RaycastHit hit;
 
     public LayerMask layerMask;
+    public LayerMask layerMask2;
 
     public float rayRange = 1;
+
+
+
+    public Transform frontRay;
+    public Transform backRay;
 
     void Awake()
     {
@@ -46,6 +52,7 @@ public class Agent : MonoBehaviour, IComparable<Agent>
         InputUpdate();
         OutputUpdate();
         UpdateFitness();
+        CheckIfFacing();
     }
 
     public void CheckPointReached(Transform newNextCheckpoint)
@@ -81,13 +88,42 @@ public class Agent : MonoBehaviour, IComparable<Agent>
         //float previousFrameDistance = (tr.position - nextCheckpoint.position).magnitude;
         yield return new WaitForSeconds(0.1f);
         float newDistance = (tr.position - nextCheckpoint.position).magnitude;
-        inputs[7] = 1 - Mathf.Abs(CustomScaler.FloatScale(newDistance, nextCheckpointDist, negativeDistance, 0, 1));
+        inputs[7] = Mathf.Abs(CustomScaler.FloatScale(newDistance, 0, nextCheckpointDist*2, 0, 1));
 
         /*if (previousFrameDistance > newDistance) inputs[7] = 1f;
         else if (previousFrameDistance <= newDistance) inputs[7] = -1f;*/
         //else if (previousFrameDistance == newDistance) inputs[7] = 0;
 
         StartCoroutine(Distance());
+    }
+
+    void CheckIfFacing()
+    {
+        if (Physics.Linecast(frontRay.position, nextCheckpoint.position, out hit, layerMask2))
+        {
+            Debug.DrawLine(frontRay.position, nextCheckpoint.position, Color.cyan);
+            if (Physics.Linecast(backRay.position, nextCheckpoint.position, out hit, layerMask2))
+            {
+                Debug.DrawLine(backRay.position, nextCheckpoint.position, Color.magenta);
+            }
+
+
+            if (hit.collider.name.Contains("CheckPoint"))
+            {
+                if ((nextCheckpoint.position - frontRay.position).magnitude < (nextCheckpoint.position - backRay.position).magnitude)
+                {
+                    Debug.Log("yeet1");
+                    inputs[8] = 1;
+                }
+
+                else if ((nextCheckpoint.position - backRay.position).magnitude < (nextCheckpoint.position - frontRay.position).magnitude)
+                {
+                    Debug.Log("yeet2");
+                    inputs[8] = -1;
+                }
+            }
+            else return;
+        }
     }
 
     void OutputUpdate()
