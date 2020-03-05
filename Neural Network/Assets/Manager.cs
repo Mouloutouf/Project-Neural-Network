@@ -17,6 +17,14 @@ public class Manager : MonoBehaviour
 
     public bool playerIsPlaying;
 
+    public bool testWithRadius;
+    [Range(-180, 180)]
+    public int minRadius;
+    [Range(-180, 180)]
+    public int maxRadius;
+
+    public Transform spawnCheckpoint;
+
     void Start()
     {
         StartCoroutine(InitCoroutine());
@@ -96,9 +104,15 @@ public class Manager : MonoBehaviour
 
     private void ResetAgent()
     {
+        int currentRotation;
+        if (testWithRadius) currentRotation = UnityEngine.Random.Range(minRadius, maxRadius + 1);
+        else currentRotation = 0;
+
+        Vector3 spawningPos = CheckPointManager.instance.firstCheckPoint.position - new Vector3(0, 0, -10f);
+
         for (int k = 0; k < agents.Count; k++)
         {
-            agents[k].ResetAgent();
+            agents[k].ResetAgent(currentRotation, spawningPos);
         }
     }
 
@@ -134,7 +148,7 @@ public class Manager : MonoBehaviour
     {
         Data data = DataManager.instance.Load();
 
-        if(data != null)
+        if (data != null)
         {
             for (int b = 0; b < agents.Count; b++)
             {

@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 172845524}
 --- !u!65 &85440741
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 738911517}
 --- !u!65 &125121939
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 1619361701}
 --- !u!65 &146515183
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 222137872}
 --- !u!65 &172845526
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -823,13 +823,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   populationSize: 100
-  trainingDuration: 60
-  mutationRate: 100
+  trainingDuration: 10
+  mutationRate: 10
   agentPrefab: {fileID: 2632727489763850747, guid: 6b17462cde676ab4ab6240fcc6c4615c,
     type: 3}
   agentGroupParent: {fileID: 1580016639}
   agents: []
   playerIsPlaying: 0
+  testWithRadius: 1
+  minRadius: 0
+  maxRadius: 0
+  spawnCheckpoint: {fileID: 0}
 --- !u!4 &194073304
 Transform:
   m_ObjectHideFlags: 0
@@ -952,7 +956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 501462181}
 --- !u!65 &219315823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1058,7 +1062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 1631940717}
 --- !u!65 &222137874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1293,7 +1297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 2016356258}
 --- !u!65 &419010203
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1611,7 +1615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 1484774030}
 --- !u!65 &501462183
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1823,7 +1827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 125121937}
 --- !u!65 &524266258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1929,7 +1933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 1528432854}
 --- !u!65 &543078560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2141,7 +2145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 882518134}
 --- !u!65 &698023768
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2247,7 +2251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 85440739}
 --- !u!65 &700756049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2353,7 +2357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 419010201}
 --- !u!65 &738911519
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2459,7 +2463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 700756047}
 --- !u!65 &760707051
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2565,7 +2569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 1602588484}
 --- !u!65 &779091880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2891,7 +2895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 444338821}
 --- !u!65 &882518136
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3485,7 +3489,7 @@ PrefabInstance:
     - target: {fileID: 7209700992347900169, guid: 14f59eee307f2254da2492c8e5f1da19,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.001822586
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 7209700992347900169, guid: 14f59eee307f2254da2492c8e5f1da19,
         type: 3}
@@ -3802,7 +3806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c7af397fb661148a02c08306242c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstCheckPoint: {fileID: 658650056}
+  firstCheckPoint: {fileID: 146515181}
+  spawnPointColor: {r: 0.9681535, g: 0, b: 1, a: 1}
   wallPrefab: {fileID: 4462303139446650484, guid: 4a434ac56d90d1347b5732115d67f268,
     type: 3}
   mode: 2
@@ -3856,6 +3861,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1346656155
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Transparent (Instance)
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 10
+    - _GlossMapScale: 1
+    - _Glossiness: 0
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 3
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 0
+    m_Colors:
+    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1353529645
 GameObject:
   m_ObjectHideFlags: 0
@@ -4039,7 +4120,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b22ad45e296bee48b3f7bdeab897dc3, type: 2}
+  - {fileID: 1346656155}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4114,7 +4195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 779091878}
 --- !u!65 &1484774032
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4220,7 +4301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 760707049}
 --- !u!65 &1528432856
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4568,7 +4649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 524266256}
 --- !u!65 &1602588486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4674,7 +4755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 219315821}
 --- !u!65 &1619361703
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4780,7 +4861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 698023766}
 --- !u!65 &1631940719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4992,7 +5073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 146515181}
 --- !u!65 &1699054924
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5333,7 +5414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb4caaeb1a8f2d4ba7043d1e0a0b3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextCheckpoint: {fileID: 658650056}
+  nextCheckpoint: {fileID: 543078558}
 --- !u!65 &2016356260
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5472,3 +5553,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2018138539}
   m_CullTransparentMesh: 0
+--- !u!1001 &1682645839067512948
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2348228350054831076, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_Name
+      value: Car Spawner Point
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348228350054666180, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 56.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348228350054666180, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348228350054666180, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 35.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348228350054666180, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348228350054666180, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348228350054666180, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348228350054666180, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348228350054666180, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348228350054666180, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348228350054666180, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348228350054666180, guid: 2207f2095e1ee0946b4ca25f6588b56a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2207f2095e1ee0946b4ca25f6588b56a, type: 3}
