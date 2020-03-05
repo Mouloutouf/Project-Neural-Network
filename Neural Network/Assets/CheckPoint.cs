@@ -19,10 +19,12 @@ public class CheckPoint : MonoBehaviour
         }
     }
 
+    /*
     [ContextMenu("Set Spawn Point")]
     public void SetAsSpawnPoint()
     {
         CheckPointManager.instance.firstCheckPoint = this.transform;
         GetComponent<MeshRenderer>().material.color = Color.red;
     }
+    */
 }

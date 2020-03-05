@@ -107,12 +107,17 @@ public class Manager : MonoBehaviour
         int currentRotation;
         if (testWithRadius) currentRotation = UnityEngine.Random.Range(minRadius, maxRadius + 1);
         else currentRotation = 0;
+        Quaternion rot = Quaternion.Euler(
+            0,
+            CheckPointManager.instance.firstCheckPoint.position.y - currentRotation,
+            0
+            );
 
-        Vector3 spawningPos = CheckPointManager.instance.firstCheckPoint.position - new Vector3(0, 0, -10f);
+        Vector3 spawningPos = CheckPointManager.instance.firstCheckPoint.position - new Vector3(0, 0, 10f);
 
         for (int k = 0; k < agents.Count; k++)
         {
-            agents[k].ResetAgent(currentRotation, spawningPos);
+            agents[k].ResetAgent(rot, spawningPos);
         }
     }
 
