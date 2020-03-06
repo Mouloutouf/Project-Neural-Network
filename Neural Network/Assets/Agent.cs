@@ -135,11 +135,13 @@ public class Agent : MonoBehaviour, IComparable<Agent>
         return 0;
     }
 
-    public void ResetAgent()
+    public void ResetAgent(Quaternion _rotation, Vector3 spawnPos)
     {
         fitness = 0;
-        tr.position = Vector3.zero;
-        tr.rotation = Quaternion.identity;
+        //tr.position = Vector3.zero;
+        tr.position = spawnPos;
+        //tr.rotation = Quaternion.identity;
+        tr.rotation = _rotation;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 

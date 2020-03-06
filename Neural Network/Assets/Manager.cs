@@ -16,6 +16,20 @@ public class Manager : MonoBehaviour
     Agent agent;
     public List<Agent> agents = new List<Agent>();
 
+    public bool playerIsPlaying;
+
+    public bool testWithRadius;
+    [Range(-180, 180)]
+    public int minRadius;
+    [Range(-180, 180)]
+    public int maxRadius;
+
+    public bool incrementRadiusEveryGeneration;
+    private bool firstIncrement = true;
+    public int increment;
+
+    //public Transform spawnCheckpoint;
+
     void Start()
     {
         paintTex = FindObjectOfType<PaintTex>();
@@ -41,6 +55,7 @@ public class Manager : MonoBehaviour
 
     void NewGeneration()
     {
+        if (incrementRadiusEveryGeneration) IncrementAngle();
         agents.Sort();
         AddOrRemoveAgent();
         Mutate();
@@ -96,24 +111,34 @@ public class Manager : MonoBehaviour
 
     private void ResetAgent()
     {
-        paintTex.car = new Agent[agents.Count];
-        paintTex.carPos = new Vector2Int[agents.Count];
-        paintTex.folderIndex += 1;
-        paintTex.CreatePng();
+        int currentRotation;
+        if (testWithRadius) currentRotation = UnityEngine.Random.Range(minRadius, maxRadius + 1);
+        else currentRotation = 0;
+        Quaternion rot = Quaternion.Euler(
+            0,
+            CheckPointManager.instance.firstCheckPoint.eulerAngles.y + currentRotation,
+            0
+            );
 
-        if (paintTex.isReset == true)
-        {
-            paintTex.StartTex();
-        }
+        Vector3 spawningPos = CheckPointManager.instance.firstCheckPoint.position + (CheckPointManager.instance.firstCheckPoint.forward * -10f);
 
         for (int k = 0; k < agents.Count; k++)
         {
-            agents[k].ResetAgent();
-
-            paintTex.car[k] = agents[k];
+            agents[k].ResetAgent(rot, spawningPos);
         }
 
 
+    }
+
+    private void IncrementAngle()
+    {
+        if (!firstIncrement)
+        {
+            minRadius -= increment;
+            maxRadius += increment;
+        }
+
+        firstIncrement = false;
     }
 
     private void SetColor()
