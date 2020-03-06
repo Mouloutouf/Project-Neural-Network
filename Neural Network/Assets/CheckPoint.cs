@@ -12,17 +12,10 @@ public class CheckPoint : MonoBehaviour
 
         if (agent)
         {
-            if (agent.nextCheckpoint == transform)
+            if(agent.nextCheckpoint == transform)
             {
                 agent.CheckPointReached(nextCheckpoint);
             }
         }
-    }
-
-    [ContextMenu("Set Spawn Point")]
-    public void SetAsSpawnPoint()
-    {
-        CheckPointManager.instance.firstCheckPoint = this.transform;
-        GetComponent<MeshRenderer>().material.color = Color.red;
     }
 }

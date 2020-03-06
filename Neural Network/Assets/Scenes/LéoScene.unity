@@ -823,11 +823,6 @@ MonoBehaviour:
     type: 3}
   agentGroupParent: {fileID: 1580016639}
   agents: []
-  playerIsPlaying: 0
-  testWithRadius: 1
-  minRadius: -180
-  maxRadius: -180
-  spawnCheckpoint: {fileID: 0}
 --- !u!4 &194073304
 Transform:
   m_ObjectHideFlags: 0
@@ -3732,11 +3727,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstCheckPoint: {fileID: 658650056}
-  spawnPointColor: {r: 0, g: 0, b: 0, a: 0}
-  wallPrefab: {fileID: 4462303139446650484, guid: 4a434ac56d90d1347b5732115d67f268,
-    type: 3}
-  mode: 2
-  size: 0.4
 --- !u!4 &1344309311
 Transform:
   m_ObjectHideFlags: 0

@@ -11,29 +11,21 @@ public class Manager : MonoBehaviour
 
     public Agent agentPrefab;
     public Transform agentGroupParent;
+    PaintTex paintTex;
 
     Agent agent;
     public List<Agent> agents = new List<Agent>();
 
-    public bool playerIsPlaying;
-
-    public bool testWithRadius;
-    [Range(-180, 180)]
-    public int minRadius;
-    [Range(-180, 180)]
-    public int maxRadius;
-
-    public Transform spawnCheckpoint;
-
     void Start()
     {
+        paintTex = FindObjectOfType<PaintTex>();
         StartCoroutine(InitCoroutine());
     }
 
     IEnumerator InitCoroutine()
     {
         NewGeneration();
-        NeuralNetworkViewer.instance.Init(agents[0]);
+        //InitNeuralNetworkViewer();
         Focus();
         yield return new WaitForSeconds(trainingDuration);
         StartCoroutine(LoopCoroutine());
@@ -104,16 +96,24 @@ public class Manager : MonoBehaviour
 
     private void ResetAgent()
     {
-        int currentRotation;
-        if (testWithRadius) currentRotation = UnityEngine.Random.Range(minRadius, maxRadius + 1);
-        else currentRotation = 0;
+        paintTex.car = new Agent[agents.Count];
+        paintTex.carPos = new Vector2Int[agents.Count];
+        paintTex.folderIndex += 1;
+        paintTex.CreatePng();
 
-        Vector3 spawningPos = CheckPointManager.instance.firstCheckPoint.position - new Vector3(0, 0, +10f);
+        if (paintTex.isReset == true)
+        {
+            paintTex.StartTex();
+        }
 
         for (int k = 0; k < agents.Count; k++)
         {
-            agents[k].ResetAgent(currentRotation, spawningPos);
+            agents[k].ResetAgent();
+
+            paintTex.car[k] = agents[k];
         }
+
+
     }
 
     private void SetColor()
@@ -127,9 +127,9 @@ public class Manager : MonoBehaviour
     }
     private void Focus()
     {
-        NeuralNetworkViewer.instance.agent = agents[0];
-        NeuralNetworkViewer.instance.RefreshAxon();
-        if (!playerIsPlaying) CameraController.instance.target = agents[0].tr;
+        //NeuralNetworkViewer.instance.agent = agents[0];
+        //NeuralNetworkViewer.instance.RefreshAxon();
+        CameraController.instance.target = agents[0].tr;
     }
 
     public void Save()
@@ -148,7 +148,7 @@ public class Manager : MonoBehaviour
     {
         Data data = DataManager.instance.Load();
 
-        if (data != null)
+        if(data != null)
         {
             for (int b = 0; b < agents.Count; b++)
             {

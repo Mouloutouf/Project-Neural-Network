@@ -11,10 +11,8 @@ public class Agent : MonoBehaviour, IComparable<Agent>
     public float fitness;
 
     public Transform nextCheckpoint;
-    public Transform prevCheckpoint;
     public float nextCheckpointDist;
     public float distanceTraveled;
-    public float negativeDistance;
 
     public MeshRenderer meshRenderer;
 
@@ -27,41 +25,29 @@ public class Agent : MonoBehaviour, IComparable<Agent>
 
     public float[] inputs;
 
-    [Range(-1, 1)] public float yeet;
-
     Vector3 pos;
     RaycastHit hit;
 
     public LayerMask layerMask;
-    public LayerMask layerMask2;
 
     public float rayRange = 1;
 
-
-
-    public Transform frontRay;
-    public Transform backRay;
-
-    void Awake()
-    {
-        prevCheckpoint = GameObject.Find("CheckPoints Group").transform;
-    }
+    [Space]
+    Vector3 velocity;
+    public float outVelocity;
 
     void FixedUpdate()
     {
         InputUpdate();
         OutputUpdate();
         UpdateFitness();
-        CheckIfFacing();
     }
 
     public void CheckPointReached(Transform newNextCheckpoint)
     {
         distanceTraveled += nextCheckpointDist;
-        prevCheckpoint = nextCheckpoint;
         nextCheckpoint = newNextCheckpoint;
         nextCheckpointDist = (tr.position - nextCheckpoint.position).magnitude;
-        negativeDistance = nextCheckpointDist * 2;
     }
 
     void InputUpdate()
@@ -76,54 +62,13 @@ public class Agent : MonoBehaviour, IComparable<Agent>
         inputs[3] = RaySensor(pos + Vector3.up * 0.2f, tr.right, 1.5f);
         inputs[4] = RaySensor(pos + Vector3.up * 0.2f, -tr.right, 1.5f);
 
+        ///\
+
         inputs[5] = 1 - (float)Math.Tanh(rb.velocity.magnitude / 20);
         inputs[6] = (float)Math.Tanh(rb.angularVelocity.y * 0.01f);
-    }
 
-    IEnumerator Distance()
-    {
-        //Debug.Log(nextCheckpointDist = (tr.position - prevCheckpoint.position).magnitude);
-        if (nextCheckpointDist > negativeDistance) Debug.LogWarning("Destroy this bruh");
-
-        //float previousFrameDistance = (tr.position - nextCheckpoint.position).magnitude;
-        yield return new WaitForSeconds(0.1f);
-        float newDistance = (tr.position - nextCheckpoint.position).magnitude;
-        inputs[7] = Mathf.Abs(CustomScaler.FloatScale(newDistance, 0, nextCheckpointDist*2, 0, 1));
-
-        /*if (previousFrameDistance > newDistance) inputs[7] = 1f;
-        else if (previousFrameDistance <= newDistance) inputs[7] = -1f;*/
-        //else if (previousFrameDistance == newDistance) inputs[7] = 0;
-
-        StartCoroutine(Distance());
-    }
-
-    void CheckIfFacing()
-    {
-        if (Physics.Linecast(frontRay.position, nextCheckpoint.position, out hit, layerMask2))
-        {
-            Debug.DrawLine(frontRay.position, nextCheckpoint.position, Color.cyan);
-            if (Physics.Linecast(backRay.position, nextCheckpoint.position, out hit, layerMask2))
-            {
-                Debug.DrawLine(backRay.position, nextCheckpoint.position, Color.magenta);
-            }
-
-
-            if (hit.collider.name.Contains("CheckPoint"))
-            {
-                if ((nextCheckpoint.position - frontRay.position).magnitude < (nextCheckpoint.position - backRay.position).magnitude)
-                {
-                    Debug.Log("yeet1");
-                    inputs[8] = 1;
-                }
-
-                else if ((nextCheckpoint.position - backRay.position).magnitude < (nextCheckpoint.position - frontRay.position).magnitude)
-                {
-                    Debug.Log("yeet2");
-                    inputs[8] = -1;
-                }
-            }
-            else return;
-        }
+        velocity = rb.velocity;
+        outVelocity = Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.z);
     }
 
     void OutputUpdate()
@@ -163,23 +108,17 @@ public class Agent : MonoBehaviour, IComparable<Agent>
 
     public void SetDefaultColor()
     {
-        gameObject.name = "Agent Bass Boosted(Clone)";
         meshRenderer.material = defaultMat;
-        StartCoroutine(Distance());
     }
 
     public void SetMutatedColor()
     {
-        gameObject.name = "Agent Bass Boosted(Clone)";
         meshRenderer.material = mutatedMat;
-        StartCoroutine(Distance());
     }
 
     public void SetFirstColor()
     {
-        gameObject.name = "FirstAgent";
         meshRenderer.material = firstMat;
-        StartCoroutine(Distance());
     }
 
     public int CompareTo(Agent other)
@@ -196,22 +135,19 @@ public class Agent : MonoBehaviour, IComparable<Agent>
         return 0;
     }
 
-    public void ResetAgent(float _rotation, Vector3 spawnPos)
+    public void ResetAgent()
     {
         fitness = 0;
-        //tr.position = Vector3.zero;
-        tr.position = spawnPos;
-        //tr.rotation = Quaternion.identity;
-        tr.rotation = Quaternion.Euler(0, _rotation, 0);
+        tr.position = Vector3.zero;
+        tr.rotation = Quaternion.identity;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+
         distanceTraveled = 0;
 
         nextCheckpoint = CheckPointManager.instance.firstCheckPoint;
         nextCheckpointDist = (tr.position - nextCheckpoint.position).magnitude;
 
         inputs = new float[net.layers[0]]; // Layer 0 => Inputs
-
-        StopAllCoroutines();
     }
 }
