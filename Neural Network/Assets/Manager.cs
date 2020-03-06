@@ -23,7 +23,11 @@ public class Manager : MonoBehaviour
     [Range(-180, 180)]
     public int maxRadius;
 
-    public Transform spawnCheckpoint;
+    public bool incrementRadiusEveryGeneration;
+    private bool firstIncrement = true;
+    public int increment;
+
+    //public Transform spawnCheckpoint;
 
     void Start()
     {
@@ -49,6 +53,7 @@ public class Manager : MonoBehaviour
 
     void NewGeneration()
     {
+        if (incrementRadiusEveryGeneration) IncrementAngle();
         agents.Sort();
         AddOrRemoveAgent();
         Mutate();
@@ -109,16 +114,27 @@ public class Manager : MonoBehaviour
         else currentRotation = 0;
         Quaternion rot = Quaternion.Euler(
             0,
-            CheckPointManager.instance.firstCheckPoint.position.y - currentRotation,
+            CheckPointManager.instance.firstCheckPoint.eulerAngles.y + currentRotation,
             0
             );
 
-        Vector3 spawningPos = CheckPointManager.instance.firstCheckPoint.position - new Vector3(0, 0, 10f);
+        Vector3 spawningPos = CheckPointManager.instance.firstCheckPoint.position + (CheckPointManager.instance.firstCheckPoint.forward * -10f);
 
         for (int k = 0; k < agents.Count; k++)
         {
             agents[k].ResetAgent(rot, spawningPos);
         }
+    }
+
+    private void IncrementAngle()
+    {
+        if (!firstIncrement)
+        {
+            minRadius -= increment;
+            maxRadius += increment;
+        }
+
+        firstIncrement = false;
     }
 
     private void SetColor()
